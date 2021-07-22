@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+D:\BridgeLabz\Day8_Emp_Wage\src\employeeWage\.metadata\.plugins\org.eclipse.jdt.core

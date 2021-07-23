@@ -1,0 +1,63 @@
+package employeeWage;
+
+import java.util.Scanner;
+
+public class EmployeeWageMain implements EmployeeWage {
+  
+    /*
+     * Calculating Employee Wage Computation
+     */
+    public void empWage() {            
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter num of companies you want to add");
+        int num = scanner.nextInt();
+        // array
+        // saving the total wage for each company in Array.
+        int[] array = new int[num];
+        for (int i = 0; i < num; i++) {
+            System.out.println("Enter Comapny Name");
+            String name = scanner.next();
+            System.out.println("Enter Emp Rate PerHour");
+            int empRatePerHour = scanner.nextInt();
+            System.out.println("Enter numOf Working Days");
+            int numOfWorkingDays = scanner.nextInt();
+            System.out.println("Enter max Hours Per Month ");
+            int maxHoursPerMonth = scanner.nextInt();
+            
+            System.out.println("Welcome to Employee Daily Wage " + name);
+            int empHrs = 0;
+            int totalEmpHrs = 0;
+            int totalWorkingDays = 0;
+
+            // Computation
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) {
+                totalWorkingDays++;
+                int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+                switch (empCheck) {
+                    case IS_FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    case IS_PART_TIME:
+                        empHrs = 4;
+                        break;
+                    default:
+                        empHrs = 0;
+                }
+                totalEmpHrs += empHrs;
+                System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " + empHrs);
+            }
+            int totalEmpWage = totalEmpHrs * empRatePerHour;
+            System.out.println("Total Emp Wage: " + totalEmpWage);
+            //store the Total employee wage into array.
+            array[i] = totalEmpWage;
+            //displaying array elements.
+            System.out.println(array[i]);
+        }
+        scanner.close();
+    }
+    public static void main(String[] args) {
+    	EmployeeWageMain em  = new EmployeeWageMain();
+    	em.empWage();
+    }
+
+}

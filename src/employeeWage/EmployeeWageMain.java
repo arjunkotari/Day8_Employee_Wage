@@ -14,7 +14,7 @@ public class EmployeeWageMain implements EmployeeWage {
         int num = scanner.nextInt();
         // ArrayList
         // saving the total wage for each company in ArrayList.       
-        ArrayList al = new ArrayList();
+        ArrayList<Integer> al = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             System.out.println("Enter Comapny Name");
             String name = scanner.next();
@@ -28,11 +28,12 @@ public class EmployeeWageMain implements EmployeeWage {
             System.out.println("Welcome to Employee Daily Wage " + name);
             int empHrs = 0;
             int totalEmpHrs = 0;
-            int totalWorkingDays = 0;
+            int totalWorkingDays = 0;            
 
             // Computation
             while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) {
                 totalWorkingDays++;
+                //Generating random number
                 int empCheck = (int) Math.floor(Math.random() * 10) % 3;
                 switch (empCheck) {
                     case IS_FULL_TIME:
@@ -46,11 +47,15 @@ public class EmployeeWageMain implements EmployeeWage {
                 }
                 totalEmpHrs += empHrs;
                 System.out.println("Day#: " + totalWorkingDays + " Emp Hr: " + empHrs);
-            }
+                //calculating daily wage
+                int dailyWage = empHrs * empRatePerHour;
+                //storing daily wage into ArrayList
+                al.add(dailyWage);
+            }            
             int totalEmpWage = totalEmpHrs * empRatePerHour;
             System.out.println("Total Emp Wage: " + totalEmpWage);
             //store the Total employee wage into ArrayList.            
-            al.add(totalEmpWage);
+            al.add(totalEmpWage);           
             //displaying ArrayList elements.
             System.out.println(al);
         }

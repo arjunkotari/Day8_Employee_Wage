@@ -1,5 +1,6 @@
 package employeeWage;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmployeeWageMain implements EmployeeWage {
@@ -11,9 +12,9 @@ public class EmployeeWageMain implements EmployeeWage {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter num of companies you want to add");
         int num = scanner.nextInt();
-        // array
-        // saving the total wage for each company in Array.
-        int[] array = new int[num];
+        // ArrayList
+        // saving the total wage for each company in ArrayList.       
+        ArrayList al = new ArrayList();
         for (int i = 0; i < num; i++) {
             System.out.println("Enter Comapny Name");
             String name = scanner.next();
@@ -48,10 +49,10 @@ public class EmployeeWageMain implements EmployeeWage {
             }
             int totalEmpWage = totalEmpHrs * empRatePerHour;
             System.out.println("Total Emp Wage: " + totalEmpWage);
-            //store the Total employee wage into array.
-            array[i] = totalEmpWage;
-            //displaying array elements.
-            System.out.println(array[i]);
+            //store the Total employee wage into ArrayList.            
+            al.add(totalEmpWage);
+            //displaying ArrayList elements.
+            System.out.println(al);
         }
         scanner.close();
     }

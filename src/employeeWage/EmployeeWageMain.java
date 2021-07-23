@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EmployeeWageMain implements EmployeeWage {
-  
+	public int totalEmpWage = 0;
     /*
      * Calculating Employee Wage Computation
      */
@@ -51,8 +51,9 @@ public class EmployeeWageMain implements EmployeeWage {
                 int dailyWage = empHrs * empRatePerHour;
                 //storing daily wage into ArrayList
                 al.add(dailyWage);
+                System.out.println("Daily wage "+ dailyWage);
             }            
-            int totalEmpWage = totalEmpHrs * empRatePerHour;
+            totalEmpWage = totalEmpHrs * empRatePerHour;
             System.out.println("Total Emp Wage: " + totalEmpWage);
             //store the Total employee wage into ArrayList.            
             al.add(totalEmpWage);           
@@ -61,9 +62,16 @@ public class EmployeeWageMain implements EmployeeWage {
         }
         scanner.close();
     }
+    /*
+     * Total employee wage
+     */
+    public void EmpWageBuilder() {
+    	System.out.println("Total wage: "+totalEmpWage);
+    }
     public static void main(String[] args) {
     	EmployeeWageMain em  = new EmployeeWageMain();
     	em.empWage();
+    	em.EmpWageBuilder();
     }
 
 }
